@@ -12,4 +12,5 @@ main = do
     putStrLn "Please enter a number"
     input <- getLine 
     let x = (read input :: Int)
-    putStrLn( show (sgn (x)) )
+    putStrLn( show (sgnGuards (x)) ) -- changed from sgn to sgnGuards
+    
