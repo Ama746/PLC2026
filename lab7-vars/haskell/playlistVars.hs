@@ -46,7 +46,7 @@ playlist1 = [piece1, advert1, piece2]
     piece2  = Piece "Pathetique" "D. Barenboim"  (16*minutes+49*seconds)
     advert1 = Advert (Product "chocolate" "Yummm")          (15*seconds)
     minutes = 60*seconds -- TASK 7.4 a: identify the scope of variable "minutes"
-    seconds = 1
+    seconds = 1 -- The scope of all variables declared in the where-block (including minutes) starts at the beginning of the parent expression block, which is after the equals sign on line 43 and spans until the end of the where-block at end of line 49.
 
 length1 = sum [ item_length_secs item | item <- playlist1 ]
     -- OPTIONAL TASK: identify the scope of variable "item" above

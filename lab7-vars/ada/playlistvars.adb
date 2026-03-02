@@ -16,9 +16,9 @@ procedure PlayListVars is
         Put(" by ");
         Put (To_String (p.brand));
     end Put_Product;
-
-    type Piece_Length_Type is new Float range 0.0..36000.0;
-    type Advert_Length_Type is new Float range 0.0..120.0;
+ -- change to be subtypes rather than cloned types (new removed) OR view line 96 & line 98
+    type Piece_Length_Type is new Float range 0.0..36000.0; -- subtype Piece_Length_Type is Float range 0.0..36000.0;
+    type Advert_Length_Type is new Float range 0.0..120.0; -- subtype Advert_Length_Type is Float range 0.0..120.0;
 
     type Item_Variant_Type is (PIECE, ADVERT);
 
@@ -93,9 +93,9 @@ begin
         item := playlist1(i);
         case item.all.item_variant is
         when PIECE =>
-            length1 := length1 + item.all.piece_length_secs; -- TASK 7.5: fix compiler error
+            length1 := length1 + item.all.piece_length_secs; -- TASK 7.5: fix compiler error >  length1 := length1 + Float(item.all.piece_length_secs);
         when ADVERT =>
-            length1 := length1 + item.all.ad_length_secs; -- TASK 7.5: fix compiler error
+            length1 := length1 + item.all.ad_length_secs; -- TASK 7.5: fix compiler error > length1 := length1 + Float(item.all.ad_length_secs);
         end case;
     end loop;
 
